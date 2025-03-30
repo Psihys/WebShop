@@ -1,94 +1,15 @@
 /* Overall container */
 .container {
   margin: auto;
-  padding: 0;
   font-family: Arial, sans-serif;
   max-width: 1920px;
   width: 100%;
-}
-
-/* Header styling */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: #fff;
-  border-bottom: 2px solid #ddd;
-}
-
-/* Logo styling */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo img {
-  width: 40px;
-  height: auto;
-}
-
-.logo-text {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-}
-
-/* Navigation styling */
-.navigation {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.navigation-list {
-  display: flex;
-  gap: 30px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.list-item {
-  font-size: 18px;
-}
-
-.list-item a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.list-item a:hover {
-  color: #007bff;
-}
-
-/* Icons container */
-/* Icons container */
-.icons-list {
-  display: flex;
-  gap: 15px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.icon-item {
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.icon-item:hover {
-  transform: scale(1.1);
 }
 
 /* Main Section */
 
 .main-content {
   margin: auto;
-  padding: 40px;
 
   max-width: 1440px;
   width: 100%;
@@ -230,7 +151,22 @@
   color: inherit;
 }
 
-
+.see-more-btn{
+    margin: auto;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 26px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
 
 /* For better spacing and alignment on smaller screens */
 @media (max-width: 768px) {

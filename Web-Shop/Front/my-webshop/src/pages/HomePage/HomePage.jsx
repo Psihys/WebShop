@@ -1,12 +1,8 @@
 import React from 'react'
 import './HomePage.css'
-import { Link } from 'react-router-dom'
-
-// Import icons
-import { MdOutlineAccountCircle } from 'react-icons/md'
-import { MdOutlineFavoriteBorder } from 'react-icons/md'
-import { IoSearch } from 'react-icons/io5'
-import { FaCartShopping } from 'react-icons/fa6'
+import { Link, useNavigate } from 'react-router-dom'
+import Header from '../../commponents/Header/Header'
+import Footer from '../../commponents/Footer/Footer'
 
 // Dynamically import category images
 const importCategoryImages = (r) => r.keys().map(r)
@@ -101,47 +97,14 @@ const products = [
 ]
 
 const HomePage = () => {
+
+  // Use useNavigate hook to programmatically navigate to Product page
+  const navigate = useNavigate()
+
+
   return (
     <div className="container">
-      <div className="header">
-        <div className="logo">
-          <img src="logo.png" alt="" />
-          <p className="logo-text">Logo</p>
-        </div>
-        <div className="navigation">
-          <ul className="navigation-list">
-            <li className="list-item">
-              <Link to={'/home-page'}>Home</Link>
-            </li>
-            <li className="list-item">
-              <Link to={'/products'}>Products</Link>
-            </li>
-            <li className="list-item">
-              <Link to={'/about-us'}>About Us</Link>
-            </li>
-            <li className="list-item">
-              <Link to={'/contact-us'}>Contact Us</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="nav-icons">
-          <ul className="icons-list">
-            <li className="icon-item">
-              <MdOutlineAccountCircle size={30} color="black" />
-            </li>
-            <li className="icon-item">
-              <MdOutlineFavoriteBorder size={30} color="black" />
-            </li>
-            <li className="icon-item">
-              <IoSearch size={30} color="black" />
-            </li>
-            <li className="icon-item">
-              <FaCartShopping size={30} color="black" />
-            </li>
-          </ul>
-        </div>
-      </div>
-
+      <Header />
       <div className="main-content">
         <div className="first-section">
           <div className="first-section-intro">
@@ -191,8 +154,13 @@ const HomePage = () => {
               </li>
             ))}
           </ul>
+          <button
+          onClick={() => navigate('/products')}
+          className="see-more-btn">See More</button>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }
