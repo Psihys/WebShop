@@ -3,14 +3,17 @@ const models = require('./models/models') // Import models to create tables in d
 const express = require('express')
 const sequelize = require('./db')
 const cors = require('cors')
+const router = require('./routes/index.js')
+const errorHandler = require('./middleware/ErrorHandlingMiddleware')
 
 const PORT = process.env.PORT || 3000
 
 const app = express()
-
 app.use(cors())
 app.use(express.json()) // Parse JSON bodies
+app.use('/api', router)
 
+app.use(errorHandler) // Error handling middleware
 
 const start = async () => {
   try {
