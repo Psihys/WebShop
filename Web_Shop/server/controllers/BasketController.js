@@ -1,4 +1,4 @@
-const { Basket, BasketDevice, Device } = require('../models/Basket.js')
+const { Basket, BasketDevice, Device } = require('../models/models')
 const ApiError = require('../error/ApiError.js')
 
 class BasketController{
