@@ -1,17 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { createContext } from 'react'
+import App from './App'
+import UserStore from './store/UserStore'
+import ProductStore from './store/ProductStore'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+export const Context = React.createContext(null) // Контекст
+export const ContextProduct = React.createContext(null) // Контекст для продуктов
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
+
+const userStore = new UserStore() // Создаем инстанс класса UserStore
+const productStore = new ProductStore() // Создаем инстанс класса ProductStore
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  <Context.Provider value={{ user: userStore }}>
+    <ContextProduct.Provider value={{ product: productStore }}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </ContextProduct.Provider>
+  </Context.Provider>
+)
