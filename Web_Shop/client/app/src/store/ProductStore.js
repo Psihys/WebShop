@@ -33,6 +33,27 @@ export default class ProductStore {
         rating: 0,
         img: '99d97f80-db2b-41b0-b66b-e03afca57ecd.jpg',
       },
+      {
+        id: 4,
+        name: '15pro',
+        price: 2000,
+        rating: 0,
+        img: '99d97f80-db2b-41b0-b66b-e03afca57ecd.jpg',
+      },
+      {
+        id: 5,
+        name: '16pro',
+        price: 2000,
+        rating: 0,
+        img: '99d97f80-db2b-41b0-b66b-e03afca57ecd.jpg',
+      },
+      {
+        id: 6,
+        name: '17pro',
+        price: 2000,
+        rating: 0,
+        img: '99d97f80-db2b-41b0-b66b-e03afca57ecd.jpg',
+      },
     ]
     this._selectedType = {}
     this._selectedBrand = {}

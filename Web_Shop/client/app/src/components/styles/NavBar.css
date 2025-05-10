@@ -1,0 +1,63 @@
+:root {
+  --default-nav-color: black;
+}
+
+.nav_bar {
+  margin: auto;
+  padding: 30px;
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  margin: auto;
+  max-width: 1920px;
+  padding: 0 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 22px;
+  text-decoration: none;
+  color: var(--default-nav-color);
+}
+
+.nav-link {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  text-decoration: none;
+  color: var(--default-nav-color);
+}
+
+.page-navigation {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.auth-buttons {
+  width: 100%;
+  max-width: 250px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.auth-buttons{
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+}

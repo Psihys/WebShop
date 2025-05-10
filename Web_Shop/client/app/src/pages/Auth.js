@@ -1,12 +1,15 @@
 import React from 'react'
 import { Button, Card, Container, Form, Row } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
-import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../utils/consts'
+import { LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from '../utils/consts'
 import { useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
 
 const Auth = () => {
     const location = useLocation()
     const isLogin = location.pathname === LOGIN_ROUTE
+    const navigate = useNavigate()
   return (
     <Container>
       <Card>
@@ -23,7 +26,7 @@ const Auth = () => {
           :
           <>
           <Form.Control placeholder='Введите ваш email' />
-          <Form.Control placeholder='Введите ваш email' />
+          <Form.Control placeholder='Подтвердите ваш email' />
           <Form.Control placeholder='Введите ваш пароль' />
           <Form.Control placeholder='Подтвердите пароль' />
           </>
@@ -36,9 +39,9 @@ const Auth = () => {
           </div>}
           {
             isLogin ?
-            <Button variant={'outline-dark'}>Login</Button>
+            <Button variant={'outline-dark'} onClick={() => navigate(SHOP_ROUTE)} >Login</Button>
             :
-            <Button variant={'outline-dark'}>Registration</Button>
+            <Button variant={'outline-dark'} onClick={() => navigate(SHOP_ROUTE)} >Registration</Button>
           }
           </Row>
         </Form>
