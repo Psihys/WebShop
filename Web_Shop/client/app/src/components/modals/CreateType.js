@@ -1,7 +1,7 @@
 import React from 'react'
 import { Modal,Form,Button } from 'react-bootstrap'
 
-const createType = (show, onHide) => {
+const CreateType = ({show, onHide}) => {
   return (
     <Modal
       show={show}
@@ -29,4 +29,4 @@ const createType = (show, onHide) => {
   )
 }
 
-export default createType
+export default CreateType
