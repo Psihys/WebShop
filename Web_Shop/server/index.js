@@ -12,9 +12,18 @@ const PORT = process.env.PORT || 3000
 
 const app = express()
 app.use(cors())
+app.use(cors({
+  origin: 'http://localhost:3000', // Укажите адрес вашего фронтенда
+}));
 app.use(express.json()) // Parse JSON bodies
-app.use(express.static(path.resolve(__dirname, 'static' ))) // Serve static files from the 'static' directory
-app.use(fileUpload({})) // Enable file upload
+app.use(express.static(path.resolve(__dirname, 'static')))
+
+app.use(
+  fileUpload({
+    limits: { fileSize: 50 * 1024 * 1024 }, // максимальний розмір файлу 50MB
+    createParentPath: true, // створює батьківську папку для файлів
+  })
+)
 app.use('/api', router)
 
 app.use(errorHandler) // Error handling middleware

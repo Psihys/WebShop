@@ -36,6 +36,7 @@ const setSign = async () => {
     navigate(SHOP_ROUTE);
   } catch (error) {
     console.error('Error during authentication:', error);
+    alert(error.response.data.message);
     // Обработка ошибки
   }
 }

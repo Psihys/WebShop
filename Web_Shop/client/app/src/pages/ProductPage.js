@@ -1,38 +1,21 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import { Col, Container, Image, Row, Card, Button } from 'react-bootstrap'
 import { CiStar } from "react-icons/ci";
+import { data, useParams } from 'react-router-dom';
+import { fetchOneProduct } from '../http/productAPI';
+
 
 const ProductPage = () => {
-  const product ={
-        id: 1,
-        name: '12pro',
-        price: 2000,
-        rating: 0,
-        img: '31cbf309-79ff-417a-b33c-68ed0e20383d.jpg',
-      }
-
-      const description = [
-        {
-          id: 1,
-          title: 'title',
-          description: 'description',
-        },
-        {
-          id: 2,
-          title: 'title',
-          description: 'description',
-        },
-        {
-          id: 3,
-          title: 'title',
-          description: 'description',
-        },
-      ]
+  const [product, setProduct] = useState({info: []})
+  const {id} = useParams()
+  useEffect(() => {
+    fetchOneProduct(id).then(data => setProduct(data))
+  }, [])
   return (
     <Container>
       <Row>
       <Col mb={4}>
-      <Image width={300} height={300} src={product.img}></Image>
+      <Image width={300} height={300} src={process.env.REACT_APP_API_URL  + '/' +  product.img}></Image>
       </Col>
       <Col mb={4}>
       <Row>
@@ -55,7 +38,7 @@ const ProductPage = () => {
       </Col>
       </Row>
       <Row>
-        {description.map(info => 
+        {product.info.map(info => 
           <Row key={info.id}>
             <h4>
               {info.title}

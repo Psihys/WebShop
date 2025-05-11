@@ -9,7 +9,7 @@ const ProductItem = ({product}) => {
   return (
     <Col md={3} onClick={() => navigate(`${PRODUCT_ROUTE}/${product.id}`)}>
         <Card> 
-           <Image width={150} height={150} src={product.img}></Image>
+           <Image width={150} height={150} src={process.env.REACT_APP_API_URL  + '/' +  product.img}></Image>
            <div>
             <div>
               text 

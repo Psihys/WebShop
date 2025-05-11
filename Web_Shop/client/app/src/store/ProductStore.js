@@ -2,61 +2,14 @@ import { makeAutoObservable } from 'mobx'
 
 export default class ProductStore {
   constructor() {
-    this._types = [
-      { id: 1, name: 'Something' },
-      { id: 2, name: 'Car' },
-      { id: 3, name: 'Lenovo' },
-    ]
-    this._brands = [
-      { id: 1, name: 'Samsung' },
-      { id: 2, name: 'Asus' },
-    ]
-    this._products = [
-      {
-        id: 1,
-        name: '12pro',
-        price: 2000,
-        rating: 0,
-        img: '31cbf309-79ff-417a-b33c-68ed0e20383d.jpg',
-      },
-      {
-        id: 2,
-        name: '13pro',
-        price: 2000,
-        rating: 0,
-        img: 'f1935497-2212-4cff-ab44-72793c167274.jpg',
-      },
-      {
-        id: 3,
-        name: '14pro',
-        price: 2000,
-        rating: 0,
-        img: '99d97f80-db2b-41b0-b66b-e03afca57ecd.jpg',
-      },
-      {
-        id: 4,
-        name: '15pro',
-        price: 2000,
-        rating: 0,
-        img: '99d97f80-db2b-41b0-b66b-e03afca57ecd.jpg',
-      },
-      {
-        id: 5,
-        name: '16pro',
-        price: 2000,
-        rating: 0,
-        img: '99d97f80-db2b-41b0-b66b-e03afca57ecd.jpg',
-      },
-      {
-        id: 6,
-        name: '17pro',
-        price: 2000,
-        rating: 0,
-        img: '99d97f80-db2b-41b0-b66b-e03afca57ecd.jpg',
-      },
-    ]
+    this._types = []
+    this._brands = []
+    this._products = []
+    this._totalCount = 0
+    this._page = 1
     this._selectedType = {}
     this._selectedBrand = {}
+    this._limit = 4
     makeAutoObservable(this)
   }
 
@@ -70,11 +23,32 @@ export default class ProductStore {
     this._products = products
   }
 
+  setTotalCount(count) {
+    // Добавляем метод для установки общего количества
+    this._totalCount = count
+  }
+
   setSelectedType(type) {
     this._selectedType = type
   }
   setSelectedBrand(brand) {
     this._selectedBrand = brand
+  }
+
+  setLimit(limit) {
+    this._limit = limit
+  }
+
+  setPage(page) {
+    this._page = page
+  }
+
+  get page(){
+    return this._page
+  }
+
+  get limit() {
+    return this._limit
   }
 
   get types() {
@@ -85,6 +59,11 @@ export default class ProductStore {
   }
   get products() {
     return this._products
+  }
+
+  get totalCount() {
+    // Геттер для получения общего количества
+    return this._totalCount
   }
 
   get selectedType() {

@@ -44,7 +44,7 @@ const NavBar = observer(() => {
             <Button className='auth-buttons'
               onClick={() => {
                 logOut()
-                navigate(LOGIN_ROUTE)
+                navigate(SHOP_ROUTE)
               }}
             >
               Exit

@@ -1,7 +1,15 @@
-import React from 'react'
-import { Modal,Form,Button } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Modal, Form, Button } from 'react-bootstrap'
+import { createType } from '../../http/productAPI'
 
-const CreateType = ({show, onHide}) => {
+const CreateType = ({ show, onHide }) => {
+  const [value, setValue] = useState('')
+  const addType = () => {
+    createType({name: value}).then((data) => {
+      setValue('')
+      onHide()
+    })
+  }
   return (
     <Modal
       show={show}
@@ -17,13 +25,16 @@ const CreateType = ({show, onHide}) => {
       </Modal.Header>
       <Modal.Body>
         <Form>
-            <Form.Control placeholder='Введите название типа' />
-            
+          <Form.Control
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            placeholder='Введите название типа'
+          />
         </Form>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={onHide}>Close</Button>
-        <Button onClick={onHide}> Add new type</Button>
+        <Button onClick={addType}> Add new type</Button>
       </Modal.Footer>
     </Modal>
   )

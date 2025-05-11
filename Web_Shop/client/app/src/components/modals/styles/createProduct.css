@@ -1,0 +1,38 @@
+.create-product-modal .modal-content {
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.create-product-modal .modal-header {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.create-product-modal .modal-footer {
+  border-top: 2px solid #dee2e6;
+}
+
+.create-product-modal .dropdown-toggle {
+  width: 100%;
+}
+
+.create-product-modal .btn-outline-primary {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.create-product-modal .form-control {
+  margin-bottom: 15px;
+}
+
+.create-product-modal .d-flex.align-items-center.mb-3 {
+  gap: 10px;
+}
+
+.create-product-modal .btn-danger {
+  margin-left: 10px;
+}
+
+.create-product-modal .btn-primary {
+  width: 100%;
+}
