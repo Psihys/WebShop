@@ -1,0 +1,62 @@
+.shop-container {
+  margin: auto;
+
+  width: 100%;
+  max-width: 1080px;
+}
+
+.shop-types {
+  margin: auto;
+  width: 20%;
+
+  box-sizing: border-box;
+  float: left;
+}
+
+.shop-brands_products {
+  margin: auto;
+  width: 75%;
+
+  box-sizing: border-box;
+  float: right;
+}
+
+.shop-brands {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+
+  border: 1px solid black;
+
+  margin-bottom: 20px;
+}
+
+
+.shop-product_list{
+    margin: auto;
+    height: auto;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.shop-pagination{
+    width: 100%;
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
