@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom'
 import { login, registration } from '../http/userAPI'
 import { observer } from 'mobx-react-lite'
 import { Context } from '../index.js'
+import './styles/Auth.css'
+
 
 const Auth = observer(() => {
   const {user} = useContext(Context)
@@ -42,10 +44,10 @@ const setSign = async () => {
 }
 
   return (
-    <Container>
-      <Card>
-        <h2>{isLogin ? 'Authorization' : 'Registration'}</h2>
-        <Form>
+    <Container className='auth-container'>
+      <Card className='auth-card'>
+        <h2 className='auth-title'>{isLogin ? 'Authorization' : 'Registration'}</h2>
+        <Form className='auth-form'>
           {isLogin ? (
             <>
               <Form.Control
@@ -77,23 +79,25 @@ const setSign = async () => {
               />
             </>
           )}
-          <Row>
-            {isLogin ? (
-              <div>
-                Don't have an account?{' '}
-                <NavLink to={REGISTRATION_ROUTE}>Registration</NavLink>
-              </div>
-            ) : (
-              <div>
-                Have an account? <NavLink to={LOGIN_ROUTE}>Login</NavLink>
-              </div>
-            )}
-            <Button
+          <Row className='auth-reg_log'>
+            
+            <Button 
+              className='auth-button'
               variant={'outline-dark'}
               onClick={setSign} // вызываем функцию setSign при клике на кнопку
             >
               {isLogin ? 'Login' : 'Registration'}
             </Button>
+            {isLogin ? (
+              <div className='auth-link'>
+                Don't have an account?{' '}
+                <NavLink to={REGISTRATION_ROUTE}>Registration</NavLink>
+              </div>
+            ) : (
+              <div className='auth-link'>
+                Have an account? <NavLink to={LOGIN_ROUTE}>Login</NavLink>
+              </div>
+            )}
           </Row>
         </Form>
       </Card>

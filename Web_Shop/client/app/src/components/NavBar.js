@@ -23,7 +23,7 @@ const NavBar = observer(() => {
 
   return (
     <Navbar className='nav_bar'>
-      <Container className='container'>
+      <Container className='nav-container'>
         <NavLink className='logo' to={SHOP_ROUTE}>
           Web Shop
         </NavLink>

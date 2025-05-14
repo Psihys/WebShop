@@ -1,0 +1,70 @@
+.auth-container {
+  margin: auto;
+
+  width: 100vw;
+  height: 80vh;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 500px;
+    min-height: 300px;
+    height: auto;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+
+.auth-title{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.auth-form{
+    margin: auto;
+
+    width: 100%;
+    max-width: 350px;
+
+    height: auto;
+    min-height: 200px;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.auth-reg_log{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-button{
+    margin-bottom: 5px;
+
+    width: 100%;
+    max-width: 200px;
+
+    padding: 5px 10px;
+
+}
+
+.auth-link{
+    text-align: center;
+}

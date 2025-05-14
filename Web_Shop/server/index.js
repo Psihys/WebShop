@@ -11,6 +11,8 @@ const path = require('path')
 const PORT = process.env.PORT || 3000
 
 const app = express()
+
+
 app.use(cors())
 app.use(cors({
   origin: 'http://localhost:3000', // Укажите адрес вашего фронтенда
@@ -31,7 +33,7 @@ app.use(errorHandler) // Error handling middleware
 const start = async () => {
   try {
     await sequelize.authenticate() //conect to db
-    await sequelize.sync()
+    await sequelize.sync({alter:true})
     console.log('Connection has been established successfully.')
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`)
