@@ -11,7 +11,7 @@ const CreateProduct = observer(({ show, onHide }) => {
   const [price, setPrice] = useState(0)
   const [file, setFile] = useState(null)
   const [info, setInfo] = useState([])
-
+  const [amount, setAmount] = useState(0)
   const addInfo = () => {
     setInfo([...info, { title: '', description: '', number: Date.now() }])
   }
@@ -19,7 +19,9 @@ const CreateProduct = observer(({ show, onHide }) => {
   const closeButton = () => {
     setName('')
     setPrice(0)
+    setAmount(0)
     setInfo([])
+
     product.setSelectedType(null)
     product.setSelectedBrand(null)
     onHide()
@@ -43,6 +45,7 @@ const CreateProduct = observer(({ show, onHide }) => {
     formData.append('img', file)
     formData.append('typeId', product.selectedType.id)
     formData.append('brandId', product.selectedBrand.id)
+    formData.append('amount', `${amount}`) // Add this line
     formData.append('info', JSON.stringify(info))
     createProduct(formData).then(() => onHide())
   }
@@ -116,6 +119,13 @@ const CreateProduct = observer(({ show, onHide }) => {
             onChange={(e) => setPrice(Number(e.target.value))}
             type='number'
             placeholder='Введите цену продукта'
+            className='mb-3'
+          />
+          <Form.Control
+            value={amount}
+            onChange={(e) => setAmount(Number(e.target.value))}
+            type='number'
+            placeholder='Введите количество продукта'
             className='mb-3'
           />
           <Form.Control type='file' className='mb-3' onChange={selectFyle} />

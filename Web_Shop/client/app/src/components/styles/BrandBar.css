@@ -1,8 +1,8 @@
-.brand-bar{
+.brand-bar {
   width: 100%;
   height: auto;
 
-  margin: 0 0 20px 0 ;
+  padding: 10px;
 
   display: flex;
   flex-direction: row;
@@ -10,7 +10,11 @@
   flex-wrap: wrap;
 }
 
-.brand-card{
+.brand-card {
   width: auto;
+  transition: all 0.3s ease;
+}
 
+.brand-card:hover {
+  transform: translateY(-5px);
 }

@@ -10,12 +10,17 @@
 }
 
 .product-card {
-  height: 350px;
+  height: 400px;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: all 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
 }
 
 .product-card:hover {
@@ -52,6 +57,7 @@
 
 .product-details {
   margin-top: 10px;
+  height: auto;
 }
 
 .product-name {
@@ -64,4 +70,25 @@
   color: #000;
   font-size: 18px;
   font-weight: 600;
+}
+
+/* Add to ProductItem.css */
+.low-stock {
+  opacity: 0.7;
+}
+
+.low-stock-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.image-container {
+  position: relative;
 }

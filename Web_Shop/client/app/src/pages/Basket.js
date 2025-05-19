@@ -24,7 +24,8 @@ const Basket = observer(() => {
           name: item.device.name,
           price: item.device.price,
           img: item.device.img,
-          quantity: 1,
+          quantity: item.quantity || 1, // Use the quantity from the server or default to 1
+          maxAmount: item.device.amount,
         }))
 
         basket.setBasketItems(basketItems)
@@ -59,6 +60,15 @@ const Basket = observer(() => {
   const handleQuantityChange = async (id, newQuantity) => {
     if (newQuantity < 1) return
 
+    // Find the item to get its maxAmount
+    const item = basket.basketItems.find((item) => item.id === id)
+    if (!item) return
+
+    // Don't allow exceeding the maximum amount
+    if (newQuantity > item.maxAmount) {
+      newQuantity = item.maxAmount
+    }
+
     try {
       await updateBasketQuantity(id, newQuantity)
       basket.changeQuantity(id, newQuantity)
@@ -66,33 +76,6 @@ const Basket = observer(() => {
       console.error('Error updating quantity:', error)
     }
   }
-
-  // In your Basket.js component, update the useEffect function
-useEffect(() => {
-  const loadBasket = async () => {
-    try {
-      const data = await fetchBasket();
-      
-      // Transform data to match our store format
-      const basketItems = data.map(item => ({
-        id: item.deviceId,
-        name: item.device.name,
-        price: item.device.price,
-        img: item.device.img,
-        quantity: item.quantity || 1 // Use the quantity from the server or default to 1
-      }));
-      
-      basket.setBasketItems(basketItems);
-    } catch (error) {
-      console.error('Error loading basket:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-  
-  loadBasket();
-}, [basket]);
-
 
   if (loading) {
     return (
@@ -149,6 +132,7 @@ useEffect(() => {
                         onClick={() =>
                           handleQuantityChange(item.id, item.quantity + 1)
                         }
+                        disabled={item.quantity >= item.maxAmount} // Add this condition
                       >
                         +
                       </Button>

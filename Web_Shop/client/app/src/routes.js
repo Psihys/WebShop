@@ -7,11 +7,6 @@ import { ADMIN_ROUTE, BASKET_ROUTE,SHOP_ROUTE, PRODUCT_ROUTE, LOGIN_ROUTE, REGIS
 
 export const authRoutes = [
     {
-        path: ADMIN_ROUTE,
-        Component: Admin
-    },
-
-    {
         path: BASKET_ROUTE,
         Component: Basket
     }
