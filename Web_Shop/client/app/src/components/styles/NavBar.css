@@ -28,13 +28,6 @@
   color: var(--default-nav-color);
 }
 
-.nav-link {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 18px;
-  text-decoration: none;
-  color: var(--default-nav-color);
-}
-
 .page-navigation {
   width: 100%;
   max-width: 400px;
@@ -45,6 +38,26 @@
   align-items: center;
   gap: 30px;
 }
+
+
+.nav-shop-link {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  text-decoration: none;
+  color: var(--default-nav-color);
+  background-color: transparent;
+  border: 0;
+}
+
+.nav-basket-link {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  text-decoration: none;
+  color: var(--default-nav-color);
+  background-color: transparent;
+  border: 0;
+}
+
 
 .auth-buttons {
   width: 100%;

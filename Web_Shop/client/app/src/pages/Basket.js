@@ -13,6 +13,8 @@ const Basket = observer(() => {
   const { basket } = useContext(ContextBasket)
   const [loading, setLoading] = useState(true)
 
+  
+
   useEffect(() => {
     const loadBasket = async () => {
       try {

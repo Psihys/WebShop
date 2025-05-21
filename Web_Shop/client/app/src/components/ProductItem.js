@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Col, Card, Image, Button } from 'react-bootstrap'
 import { CiStar } from 'react-icons/ci'
 import { useNavigate } from 'react-router-dom'
-import { PRODUCT_ROUTE } from '../utils/consts.js'
+import { LOGIN_ROUTE, PRODUCT_ROUTE } from '../utils/consts.js'
 import './styles/ProductItem.css'
 import { Context, ContextBasket } from '../index'
 import { addToBasket } from '../http/basketAPI'
@@ -66,14 +66,23 @@ const ProductItem = ({ product }) => {
             </div>
           </div>
         </div>
-        <Button
-          className='add-to-basket-button'
-          variant='outline-success'
-          onClick={handleAddToBasket}
-          disabled={product.amount <= 0}
-        >
-          {product.amount > 0 ? 'Add to Basket' : 'Out of Stock'}
-        </Button>
+        {user.isAuth ? (
+          <Button
+            className='add-to-basket-button'
+            variant='outline-success'
+            onClick={handleAddToBasket}
+          >
+            Add to Basket
+          </Button>
+        ) : (
+          <Button
+            className='add-to-basket-button'
+            variant='outline-secondary'
+            onClick={() => navigate(LOGIN_ROUTE)}
+          >
+            Login to Buy
+          </Button>
+        )}
       </Card>
     </Col>
   )

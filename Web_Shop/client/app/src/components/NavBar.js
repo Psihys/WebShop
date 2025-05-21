@@ -28,20 +28,40 @@ const NavBar = observer(() => {
           Web Shop
         </NavLink>
         <div className='page-navigation'>
-          <NavLink className='nav-link' to={SHOP_ROUTE}>
+          <Button className='nav-shop-link'onClick={() => navigate(SHOP_ROUTE)}>
             Shop
-          </NavLink>
-          <NavLink className='nav-link' to={BASKET_ROUTE}>
-            Basket
-          </NavLink>
+          </Button>
+          {user.isAuth ? (
+            <Button
+              
+              onClick={() => navigate(BASKET_ROUTE)}
+              className='nav-basket-link'
+            >
+              Basket
+            </Button>
+          ) : (
+            <Button
+              
+              onClick={() => navigate(LOGIN_ROUTE)}
+              className='nav-basket-link'
+            >
+              Login to View Basket
+            </Button>
+          )}
         </div>
 
         {user.isAuth ? (
           <Nav className='auth-buttons'>
             {user.user.role === 'ADMIN' && (
-              <Button className='auth-buttons' onClick={() => navigate(ADMIN_ROUTE)}>Admin Panel</Button>
+              <Button
+                className='auth-buttons'
+                onClick={() => navigate(ADMIN_ROUTE)}
+              >
+                Admin Panel
+              </Button>
             )}
-            <Button className='auth-buttons'
+            <Button
+              className='auth-buttons'
               onClick={() => {
                 logOut()
                 navigate(SHOP_ROUTE)
@@ -52,8 +72,16 @@ const NavBar = observer(() => {
           </Nav>
         ) : (
           <Nav className='auth-buttons'>
-            <Button className='auth-buttons' onClick={() => navigate(LOGIN_ROUTE)}>Sign in</Button>
-            <Button className='auth-buttons' onClick={() => navigate(REGISTRATION_ROUTE)}>
+            <Button
+              className='auth-buttons'
+              onClick={() => navigate(LOGIN_ROUTE)}
+            >
+              Sign in
+            </Button>
+            <Button
+              className='auth-buttons'
+              onClick={() => navigate(REGISTRATION_ROUTE)}
+            >
               Sign up
             </Button>
           </Nav>
